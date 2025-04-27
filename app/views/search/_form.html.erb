@@ -1,0 +1,7 @@
+<%= form_with url: "/search", method: :get do |f| %>
+  <div class="flex items-center space-x-2 mb-5">
+    <%= f.label :query, "Search for:", class: "font-medium" %>
+    <%= f.search_field :query, class: "border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" %>
+    <%= f.submit "Search", class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium" %>
+  </div>
+<% end %>

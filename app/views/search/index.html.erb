@@ -1,0 +1,15 @@
+<div>
+  <h1 class="font-bold text-4xl">Search of messages containing "<%= @query %>"</h1>
+
+  <div id="messages" class="min-w-full divide-y divide-gray-200 space-y-5">
+    <ul>
+      <% @messages.each do |message| %>
+        <li id="<%= dom_id message %>" class="w-full sm:w-auto my-5 space-y-5">
+          <%= link_to highlight(message.body, params[:query]), message_path(message),
+            id: dom_id(message, :search_result), role: "option"  %>
+        </li>
+      <% end %>
+    </ul>  
+    <%= link_to "Back to messages", messages_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  </div>
+</div>
